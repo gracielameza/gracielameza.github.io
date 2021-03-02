@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 5 Activity</title>
+    <script src="jstimer.js"></script>
+  </head>
+  <body>
+    <h1>Working with Javascript Timer</h1>  
+    <table border = "0" width = "100%", cellspacing = "1">
+      <tr>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+        <A href= "index.html"><p align = "center"><b><font face = "Courier" size = "4">Gracie Talks About Anime</A></font></b></p>
+        </td>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+        <a href= "fancifymytext.html"><b><p align = "center"><b><font face = "Courier" size = "4">Fancify My Text</font></b></p></a>
+        </td>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+        <p align = "center"><b><font face = "Courier" size = "4">Working with Javascript Timer</font></b></p></a>
+        </td>
+      </tr>
+      </table>
+    <p> I created a slideshow with Javascript timer function setTimeout() that displays a different photo
+        every two seconds. Just to keep up with the anime theme going on, here are some more 
+        recommendations from the top of my head.
+    </p>
+    <h2>Showing More Anime</h2>
+    <div class="galleryImages">
+        <img class= "mySlides" src='https://static.wikia.nocookie.net/mob-psycho-100/images/8/8b/Mob_Psycho_100_Cover.jpg/revision/latest?cb=20161108223356' width="25%"/>
+        <img class= "mySlides" src='https://i.pinimg.com/736x/51/f2/1b/51f21bfcc693263cbf83bc14fb8d7c6b.jpg' width="25%"/>
+        <img class= "mySlides" src='https://www.anime-planet.com/images/anime/covers/yu-yu-hakusho-173.jpg?t=1554364529' width="25%"/>
+        <img class= "mySlides" src='https://static.wikia.nocookie.net/baccano/images/1/14/2007_mainvisual.png/revision/latest?cb=20180204005227' width="25%"/>
+        <img class= "mySlides" src='https://upload.wikimedia.org/wikipedia/en/8/88/Space_Dandy_promotional_image.jpg' width="25%"/>
+        <img class= "mySlides" src='https://m.media-amazon.com/images/M/MV5BYzgxOTkxYWYtODEzMS00ODhiLWIxMTYtMDQwNmIyNmIwNTJiXkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_.jpg' width="25%"/>
+    </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 2000);    
+        }
+    </script>
+  </body>
+</html>
