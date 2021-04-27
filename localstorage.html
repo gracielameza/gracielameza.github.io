@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 12 Activity</title>
+    <script src="storage.js"></script>
+  </head>
+  <body>
+    <h1>Local Storage and Cookies Sample</h1>  
+    <table border = "0" width = "100%", cellspacing = "1">
+      <tr>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+          <a href= "index.html"><p align = "center"><b><font face = "Courier" size = "4">Gracie Talks About Anime</font></b></p>
+        </td>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+        <a href= "fancifymytext.html"><b><p align = "center"><b><font face = "Courier" size = "4">Fancify My Text</font></b></p></a>
+        </td>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+        <A href= "weekfive.html">	<p align = "center"><b><font face = "Courier" size = "4">Working with Javascript Timer</font></b></p></a>
+        </td>
+        <td width = "25%" align = "center" bgcolor = "#F5E6CC">
+          <p align = "center"><b><font face = "Courier" size = "4">Local Storage and Cookies</font></b></p></a>
+        </td>
+      </tr>
+      </table>
+      <p>Click the button to see the counter increase.</p>
+      <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+      <div id="result"></div>
+      <p>Close the browser tab (or window), and try again, and the counter will continue to count.</p>
+      <br>
+      <p>To clear the counter, please press the following button.</p>
+      <p><button onclick="clearData()" type="button">Clear</button></p>
+  </body>
+
+  <head>
+    <script>
+    function clickCounter() {
+      if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+          localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
+    }
+    function clearData() {
+      localStorage.clickcount = 0;
+      document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+    }
+    </script>
+    </head>
+</html>
