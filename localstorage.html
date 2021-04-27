@@ -23,33 +23,27 @@
         </td>
       </tr>
       </table>
-      <p>Click the button to see the counter increase.</p>
-      <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+      <p>You've been here before.</p>
       <div id="result"></div>
       <p>Close the browser tab (or window), and try again, and the counter will continue to count.</p>
       <br>
-      <p>To clear the counter, please press the following button.</p>
+      <p><strike>Stalker</strike> To clear the counter, please press the following button.</p>
       <p><button onclick="clearData()" type="button">Clear</button></p>
   </body>
 
-  <head>
-    <script>
-    function clickCounter() {
-      if (typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-          localStorage.clickcount = Number(localStorage.clickcount)+1;
-        } else {
-          localStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
-      } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-      }
-    }
-    function clearData() {
-      localStorage.clickcount = 0;
-      document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
-    }
-    </script>
-    </head>
+  <script>
+  var url_segment = window.location.href.split('/');
+  var script_name = url_segment[url_segment.length - 1];
+  if(localStorage[script_name]) {
+    localStorage[script_name] = Number(localStorage[script_name]) + 1;
+  } else {
+    localStorage[script_name] = 1;
+  }
+  document.getElementById("result").innerHTML = "You have been here "+ localStorage[script_name] + " time(s).";
+
+  function clearData() {
+    localStorage[script_name] = 0;
+    document.getElementById("result").innerHTML = "You have been here "+ localStorage[script_name] + " time(s).";
+  }
+</script>
 </html>
